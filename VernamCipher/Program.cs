@@ -13,15 +13,11 @@ namespace VernamCipher
             byte[] key = Helpers.GenerateRandomBytes(bytesToBeEncrypted.Length);
 
             byte[] cipherText = Vernam.Encrypt(bytesToBeEncrypted, key);
-            byte[] bytesDeciphered = Vernam.Encrypt(bytesToBeEncrypted, key);
-
             string textDeciphered = Encoding.ASCII.GetString(Vernam.Decrypt(cipherText, key));
             
             Console.WriteLine(textDeciphered);
             
             Console.ReadLine();
         }
-
-        
     }
 }
