@@ -14,9 +14,7 @@ namespace LibVernam
             BitArray cipherBits = new BitArray(plainText.Length * 8);
 
             for(int i = 0; i < plainTextBits.Length; i++)
-            {
                 cipherBits[i] = plainTextBits[i] ^ keyBits[i];
-            }
 
             return Helpers.BitArrayToByteArray(cipherBits);
         }
@@ -31,9 +29,7 @@ namespace LibVernam
             BitArray plainTextBits = new BitArray(ciphertext.Length * 8);
 
             for (int i = 0; i < ciphertextBits.Length; i++)
-            {
                 plainTextBits[i] = ciphertextBits[i] ^ keyBits[i];
-            }
 
             return Helpers.BitArrayToByteArray(plainTextBits);
         }
