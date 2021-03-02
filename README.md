@@ -5,7 +5,7 @@ Currently has two implementations.  The first uses a typical random key the same
 
 Vernam Hash
 
-VernamHash takes a 512 bit key which drives a SHA512 hashing process to generate a key the same size of the file. It much more portable than traditional Vernam implementations as it does require distribution of random numbers. 
+VernamHash takes a 512 bit key which drives a SHA512 hashing process to generate a key the same size of the file. It much more portable than traditional Vernam implementations as it does not require distribution of random numbers. 
 
 The Vernam cipher is secure if, and only if, the following conditions are all met:
 
