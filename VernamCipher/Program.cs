@@ -28,7 +28,7 @@ namespace VernamCipher
             int byteSelection = 4;  //Select a byte from hash, valid values for SHA512 is 0-64.
 
             byte[] cipherText = VernamHash.Encrypt(key, bytesToEncrypt, byteSelection);
-            byte[] decipheredText = VernamHash.Encrypt(key, cipherText, byteSelection);
+            byte[] decipheredText = VernamHash.Decrypt(key, cipherText, byteSelection);
 
             string textDeciphered = Encoding.ASCII.GetString(decipheredText);
 
