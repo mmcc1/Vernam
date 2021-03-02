@@ -8,7 +8,7 @@ namespace LibVernam
         public static byte[] Encrypt(byte[] key, byte[] plainText, int byteSelection)
         {
             byte[] lookupTable = GenerateLookupTables(key, plainText.Length, byteSelection);
-            byte[] ciphertext = HBEncrypt(lookupTable, plainText);
+            byte[] ciphertext = VHEncrypt(lookupTable, plainText);
 
             return ciphertext;
         }
@@ -16,7 +16,7 @@ namespace LibVernam
         public static byte[] Decrypt(byte[] key, byte[] cipherText, int byteSelection)
         {
             byte[] lookupTable = GenerateLookupTables(key, cipherText.Length, byteSelection);
-            byte[] plaintext = HBDecrypt(lookupTable, cipherText);
+            byte[] plaintext = VHDecrypt(lookupTable, cipherText);
 
             return plaintext;
         }
@@ -38,7 +38,7 @@ namespace LibVernam
             return tables;
         }
 
-        private static byte[] HBEncrypt(byte[] lookupTable, byte[] plainText)
+        private static byte[] VHEncrypt(byte[] lookupTable, byte[] plainText)
         {
             BitArray plainTextBits = new BitArray(plainText);
             BitArray cipherTextBits = new BitArray(plainText.Length * 8);
@@ -60,7 +60,7 @@ namespace LibVernam
             return Helpers.BitArrayToByteArray(cipherTextBits);
         }
 
-        private static byte[] HBDecrypt(byte[] lookupTable, byte[] cipherText)
+        private static byte[] VHDecrypt(byte[] lookupTable, byte[] cipherText)
         {
             BitArray cipherTextBits = new BitArray(cipherText);
             BitArray plainTextBits = new BitArray(cipherText.Length * 8);
