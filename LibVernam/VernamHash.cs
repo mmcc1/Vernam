@@ -21,14 +21,14 @@ namespace LibVernam
             return plaintext;
         }
 
-        private static byte[] GenerateLookupTables(byte[] key, int number, int byteSelection)
+        private static byte[] GenerateLookupTables(byte[] key, int inputLength, int byteSelection)
         {
-            byte[] tables = new byte[number];
+            byte[] tables = new byte[inputLength];
             byte[] b = key;
 
             using (SHA512 shaM = new SHA512Managed())
             {
-                for (int i = 0; i < number; i++)
+                for (int i = 0; i < inputLength; i++)
                 {
                     b = shaM.ComputeHash(b);
                     tables[i] = b[byteSelection];
