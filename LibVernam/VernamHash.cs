@@ -13,12 +13,12 @@ namespace LibVernam
             return ciphertext;
         }
 
-        public static byte[] Decrypt(byte[] key, byte[] plainText, int byteSelection)
+        public static byte[] Decrypt(byte[] key, byte[] cipherText, int byteSelection)
         {
-            byte[] lookupTable = GenerateLookupTables(key, plainText.Length, byteSelection);
-            byte[] ciphertext = HBDecrypt(lookupTable, plainText);
+            byte[] lookupTable = GenerateLookupTables(key, cipherText.Length, byteSelection);
+            byte[] plaintext = HBDecrypt(lookupTable, cipherText);
 
-            return ciphertext;
+            return plaintext;
         }
 
         private static byte[] GenerateLookupTables(byte[] key, int number, int byteSelection)
