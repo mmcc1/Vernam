@@ -87,7 +87,7 @@ namespace LibVernam
         {
             byte[] rngOutput = new byte[size];
 
-            RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider();
+            RandomNumberGenerator rng = RandomNumberGenerator.Create();
 
             rng.GetBytes(rngOutput);
 
